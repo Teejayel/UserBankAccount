@@ -4,6 +4,8 @@ class User:
 
     all_users = []
 
+    # All users begin with a checking with no interest, and savings account with 2% interest.
+    # Each user created is stored in a class array for retrieval purposes.
     def __init__(self, user_name, email):
         self.user_name = user_name
         self.email = email
@@ -25,7 +27,7 @@ class User:
                 return True
         return False
 
-    @classmethod
+    @classmethod # Function serves as a switchboard for which instance method will be used
     def selected_action(cls, option, current_user, account, amount):
         for user in cls.all_users:
             if current_user == user.user_name:
@@ -38,9 +40,14 @@ class User:
         if option == 2:
             current_user.make_withdrawal(account, amount)
 
-    @classmethod
+
+    # All functions below will display account balance before and after the actions.
+    # All functions below will also require knowing which account will be accessed.
+
+    @classmethod # Unique function that requires finding two user objects to withdraw and deposit
+    # There is probably a better way to deal with one user at a time.
     def make_transfer(cls, user1, account1, user2, account2, amount):
-        for user in cls.all_users:
+        for user in cls.all_users: 
             if user1 == user.user_name:
                 user1 = user
                 break

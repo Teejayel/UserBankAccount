@@ -2,6 +2,8 @@ class BankAccount:
 
     accounts = []
 
+    # Most accounts will begin with a balance of 0. Interest rates can vary more often.
+    # Accounts 
     def __init__(self, interest, balance = 0):
         self.interest= interest
         self.balance = balance
